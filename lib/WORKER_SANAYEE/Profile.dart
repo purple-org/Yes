@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutterphone/WORKER_SANAYEE/Worker_conferm_order.dart';
 import 'package:flutterphone/WORKER_SANAYEE/GET_IMGS.dart';
+import 'package:flutterphone/WORKER_SANAYEE/aboutyou.dart';
 import 'Setting.dart';
 import 'package:flutterphone/Worker/worker_order.dart';
 import 'package:flutterphone/screens/login_screen.dart';
@@ -72,7 +73,8 @@ class  _PROFILE extends State< PROFILE> {
     var ressponse=await http.post(url,body: {
       "phone": phone,
     });
-    var responsepody= json.decode(ressponse.body);
+   // var responsepody= json.decode(ressponse.body);
+    var responsepody;
     for(int i=0;i<responsepody.length;i++){
       //L.add(responsepody[i]['count']);
       List2.add(responsepody[i]['id']);
@@ -369,6 +371,10 @@ class _Profile_woeker extends State<Profile_worker> {
                     width: 40,
                     margin: EdgeInsets.only(right: 50, top: 30),
                     child: IconButton(
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => aboutyou(name:widget.name,phone: widget.phone,experience:widget.Experiance,info:widget.Information)));
+
+                      },
                       icon: Icon(Icons.person,
                         color:info?Colors.white:Colors.black.withOpacity(0.5),),
                     ),
@@ -385,6 +391,7 @@ class _Profile_woeker extends State<Profile_worker> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
                   ),
                 ],
               ),

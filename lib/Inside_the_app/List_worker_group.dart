@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutterphone/Inside_the_app/choose.dart';
 import 'package:flutterphone/Inside_the_app/user_Profile.dart';
 import 'package:flutterphone/Inside_the_app/user_order.dart';
 import 'package:flutterphone/screens/signuser_screen.dart';
@@ -568,8 +569,9 @@ class _Group extends State<Group> {
                         DateTime _selectedDay = DateTime.now();
                         var dateParse = DateTime.parse(_selectedDay.toString());
                         var formattedDate = DateFormat('yyyy-MM-dd').format(_selectedDay);
+                        print("inside talab list worker group"+widget.namefirst_Me+widget.nameLast_Me);
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => user_order(phone:widget.phone,),));
+                            MaterialPageRoute(builder: (context) => choose(phone_Me:widget.phone_Me,image_Me:widget.image_Me,nameLast:widget.namelast,namefirst: widget.namefirst,phone:widget.phone,name_Me:widget.name_Me,work: widget.Work,namefirst_Me:widget.namefirst_Me,nameLast_Me:widget.nameLast_Me),));
                       },
                       child: Center(child: Text("طلب",
                         style: TextStyle(

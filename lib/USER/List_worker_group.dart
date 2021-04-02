@@ -455,6 +455,7 @@ class Group  extends StatefulWidget {
 class _Group extends State<Group> {
   @override
   void initState() {
+    print("inside reall group "+widget.nameLast_Me+widget.namefirst_Me);
     super.initState();
   }
 
@@ -473,7 +474,7 @@ class _Group extends State<Group> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        print(widget.phone); print(widget.name_Me); print(widget.phone_Me);
+        print(widget.phone); print(widget.name_Me); print("bardoo grouup"+widget.namefirst_Me);
         print(widget.token); print(widget.token_Me);
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => user_worker(phoneuser:widget.phone_Me,tokenuser:widget.token_Me,Work:widget.Work,image:widget.image,phone:widget.phone,name: widget.name,namelast:widget.namelast,name_Me: widget.name_Me,namefirst: widget.namefirst,token: widget.token,Information: widget.Information,Experiance:widget.Experiance,),));

@@ -187,20 +187,19 @@ class _Body extends State<SignWorker> {
               children: <Widget>[
                 Stack(
                   children: [
-
                     ClipPath(
                       clipper: Clipper4(),
-                      child:  Container(
-                        height: 220,
+                      child:Container(
+                        height: 200,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
-                              colors: [B,G]),),
-
-                        // child: Center(child: Text("MultiplePointedEdgeClipper()")),
-                      ),
-                    ),
+                              // colors: [B,A,G]
+                              colors: [Y1,Y4]
+                          ),
+                        ),
+                      ),),
                     Column(
                       children: [
                         Center(
@@ -349,52 +348,52 @@ class _Body extends State<SignWorker> {
                                           ),),
                                       ),
                                       Container(
-                                      margin: EdgeInsets.fromLTRB(0,0,0,0),
-                                      width: size.width * 0.8,
-                                      height: 60,
-                                      child: TextFormField(
-                                        controller: nameController,
-                                        validator: (value) {
-                                          if (value.isEmpty) {
-                                            Name_Null=false;
-                                            return null;
-                                          } else {
+                                        margin: EdgeInsets.fromLTRB(0,0,0,0),
+                                        width: size.width * 0.8,
+                                        height: 60,
+                                        child: TextFormField(
+                                          controller: nameController,
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              Name_Null=false;
+                                              return null;
+                                            } else {
 
-                                            Name_Null=true;
-                                            return null;
-                                          }
-                                        },
-                                        cursorColor: kPrimaryColor,
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Changa',
-                                        ),
-                                        decoration: InputDecoration(
-                                          filled: true,
-                                          fillColor: Colors.grey[100],
-                                          prefixIcon: Icon(Icons.person,color: Color(0xFF666360)),
-                                          enabledBorder: new OutlineInputBorder(
-                                            borderRadius: new BorderRadius.circular(30.0),
-                                            borderSide:  BorderSide(color:Colors.grey[100]),
-
-                                          ),
-                                          focusedBorder: new OutlineInputBorder(
-                                            borderRadius: new BorderRadius.circular(30.0),
-                                            borderSide:  BorderSide(color:Colors.grey[100]),
-
-                                          ),
-                                          hintText: 'الاسم ',
-                                          hintStyle: TextStyle(
+                                              Name_Null=true;
+                                              return null;
+                                            }
+                                          },
+                                          cursorColor: kPrimaryColor,
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
                                             fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
                                             fontFamily: 'Changa',
-                                            color: Color(0xFF666360),
                                           ),
-                                          floatingLabelBehavior: FloatingLabelBehavior.always,
+                                          decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.grey[100],
+                                            prefixIcon: Icon(Icons.person,color: Color(0xFF666360)),
+                                            enabledBorder: new OutlineInputBorder(
+                                              borderRadius: new BorderRadius.circular(30.0),
+                                              borderSide:  BorderSide(color:Colors.grey[100]),
+
+                                            ),
+                                            focusedBorder: new OutlineInputBorder(
+                                              borderRadius: new BorderRadius.circular(30.0),
+                                              borderSide:  BorderSide(color:Colors.grey[100]),
+
+                                            ),
+                                            hintText: 'الاسم ',
+                                            hintStyle: TextStyle(
+                                              fontSize: 16.0,
+                                              fontFamily: 'Changa',
+                                              color: Color(0xFF666360),
+                                            ),
+                                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                                          ),
                                         ),
                                       ),
-                                    ),
                                       Name_Null ? Container(margin: EdgeInsets.fromLTRB(180, 0, 0, 0),
                                         child: Text('',textAlign:TextAlign.end,
                                           style: TextStyle(
@@ -588,7 +587,7 @@ class _Body extends State<SignWorker> {
 
                                           ),),
                                       ),
-                                     // Container(height: 35,),
+                                      // Container(height: 35,),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         child:AlreadyHaveAnAccountCheck(
@@ -1175,7 +1174,7 @@ class _Body extends State<SignWorker> {
                                         side: BorderSide(color: Colors.transparent)
                                     ),
                                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3),
-                                    color: D,
+                                    color: Colors.black87,
                                     onPressed: () async {
                                       if (formKey.currentState.validate()) {print('validate');}
                                       else{print('not validate');}
@@ -1240,7 +1239,7 @@ class _Body extends State<SignWorker> {
                                     margin: EdgeInsets.only(top: 30,left: 0,right: 180),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: card1 ? D :  Colors.grey.withOpacity(0.5),
+                                      color: card1 ? Colors.black87 :  Colors.grey.withOpacity(0.5),
                                     ),
                                   ),
                                   Container(
@@ -1249,7 +1248,7 @@ class _Body extends State<SignWorker> {
                                     margin: EdgeInsets.only(top: 30,right: 10),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: card2 ? D :  Colors.grey.withOpacity(0.5),
+                                      color: card2 ? Colors.black87 :  Colors.grey.withOpacity(0.5),
                                     ),
                                   ),
                                   Container(
@@ -1258,7 +1257,7 @@ class _Body extends State<SignWorker> {
                                     margin: EdgeInsets.only(top: 30,left: 150,right: 10),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: card3 ?  D :  Colors.grey.withOpacity(0.5),
+                                      color: card3 ?  Colors.black87 :  Colors.grey.withOpacity(0.5),
                                     ),
                                   ),
                                 ],),
@@ -1624,7 +1623,13 @@ class _Body extends State<SignWorker> {
   //         }
   //       });
   // }
-
+// Future addMarker()async{
+//   var url = 'https://'+IP4+'/DUAA/PHP/storeLocationofworker.php';
+//   var ressponse = await http.post(url, body: {
+//     work
+//     address
+//     namelast
+// },);}
   Future senddata()async{
     if(image_file==null){
       print("image null");

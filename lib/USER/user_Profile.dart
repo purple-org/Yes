@@ -603,63 +603,72 @@ class _USER_PROFILE extends State<USER_PROFILE> {
                         image: "assets/work/sapak.jpg",
                         title: "سبّاك",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(token_Me:widget.token,work: 'سباك',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'سباك',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/electric1.jpg",
                         title: "كهربائي",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'كهربائي',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'كهربائي',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/fix.jpg",
                         title: "تصليح",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'تصليح',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'تصليح',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/lock.jpg",
                         title: "أقفال",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'أقفال',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'اقفال',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/sapaak.jpg",
                         title: "سبّاك",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'سباك',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'سباك',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/dahan.jpg",
                         title: "دهّان",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'دهان',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'دهان',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/mec.jpg",
                         title: "ميكانيك",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'ميكانيك',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'ميكانيك',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/baleet.jpg",
                         title: "بلييط",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'بلييط',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'بليط',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                       RecomendPlantCard(
                         image: "assets/work/repaier.jpg",
                         title: "إصلاح",
                         press: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(work: 'إصلاح',name_Me: widget.name_Me,location: widget.country,),),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Search_user(country:widget.country,token_Me:widget.token,work: 'اصلاح',name_Me: widget.name_Me,location: widget.country,namefirst_Me:widget.namefirst,nameLast_Me:widget.namelast,phone_Me: widget.phone,image_Me: widget.image,),),);
+
                         },
                       ),
                     ],

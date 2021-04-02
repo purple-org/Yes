@@ -39,3 +39,15 @@ const Z=Color(0xFFFED96F);
 
 
 
+const Y1=Color(0xFFFEC519);
+const Y2=Color(0xFFF6C634);
+const Y3=Color(0xFFF8C753);
+const Y4=Color(0xFFFEEF7C);
+const Y5=Color(0xFFFED96F);
+const Y6=Color(0xFFFED96F);
+
+
+const X1=Color(0xFFF5BC11);
+const X2=Color(0xFFF6CA43);
+const X3=Color(0xFFFAD06F);
+const X4=Color(0xFF333750);

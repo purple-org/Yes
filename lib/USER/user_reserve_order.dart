@@ -47,6 +47,7 @@ class user_reserve_order extends StatefulWidget {
 }
 class  _user_reserve_order extends State<user_reserve_order> {
   // AnimationController _animationController;
+
   int _page = 0;
   GlobalKey _bottomNavigationKey = GlobalKey();
   final List1 = [];
@@ -58,12 +59,15 @@ class  _user_reserve_order extends State<user_reserve_order> {
   bool button1=true;
   bool button2=false;
   bool button3=false;
+  bool button4=false;
   bool step3=false;
 
 
   Future getMyorder()async{
     var url='https://'+IP4+'/DUAA/PHP/user_current_order.php';
+    print("start "+widget.phoneuser +widget.username);
     var ressponse=await http.post(url,body: {
+
       "username": widget.username,
     });
     // ignore: deprecated_member_use
@@ -88,6 +92,18 @@ class  _user_reserve_order extends State<user_reserve_order> {
   double roundDouble(double value, int places){
     double mod = pow(10.0, places);
     return ((value * mod).round().toDouble() / mod);
+  }
+  Future getlong_not_conferm() async{
+    var url='https://'+IP4+'/DUAA/PHP/viewlongtimeorder.php';
+    print("inside getlongnot conferm"+widget.phoneuser);
+    var ressponse=await http.post(url,body: {
+      "phoneuser": widget.phoneuser,
+
+    });
+    // ignore: deprecated_member_use
+    return json.decode(ressponse.body);
+
+
   }
   @override
   void initState() {
@@ -235,7 +251,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(left: 10,right: 20),
                             height: 60,
-                            width: 110,
+                            width: 80,
                             decoration: BoxDecoration(
                               //color: Colors.white,
                               // border: Border.all(
@@ -273,7 +289,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(left: 10,right: 10),
                             height: 60,
-                            width: 110,
+                            width: 80,
                             decoration: BoxDecoration(
                               //color: Colors.white,
                               // border: Border.all(
@@ -288,7 +304,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                               // borderRadius: BorderRadius.circular(10),
                               color: Colors.transparent,
                             ),
-                            child: Text('غير مثبتة',
+                            child: Text(' طقات غير مثبتة',
                               style: TextStyle(
                                 color: button2==true?Colors.blue:Colors.black,
                                 fontSize: 15,
@@ -299,6 +315,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                           onTap: (){
                            button1=false;
                            button2=true;
+                           button4=false;
                            button3=false;
                            setState(() {
 
@@ -307,10 +324,49 @@ class  _user_reserve_order extends State<user_reserve_order> {
                         ),
                         GestureDetector(
                           child: Container(
+
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(left: 10,right: 10),
                             height: 60,
-                            width: 110,
+                            width: 80,
+                            decoration: BoxDecoration(
+                              //color: Colors.white,
+                              // border: Border.all(
+                              //   color: Colors.white,
+                              // ),
+                              border:button4? Border(
+                                bottom: BorderSide( //
+                                  color: Colors.blue,
+                                  width: 3.0,
+                                ),
+                              ):Border(),
+                              // borderRadius: BorderRadius.circular(10),
+                              color: Colors.transparent,
+                            ),
+                            child: Text(' ورشات غير مثبتة',
+                              style: TextStyle(
+                                color: button2==true?Colors.blue:Colors.black,
+                                fontSize: 15,
+                                fontFamily: 'Changa',
+                                fontWeight: FontWeight.bold,),
+                            ),
+                          ),
+                          onTap: (){
+                            button1=false;
+                            button2=false;
+                            button4=true;
+                            button3=false;
+                            setState(() {
+
+                            });
+                          },
+                        ),
+                        GestureDetector(
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 10,right: 10),
+                            height: 60,
+                            width: 80,
                             decoration: BoxDecoration(
                               //color: Colors.white,
                               // border: Border.all(
@@ -336,6 +392,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                           onTap: (){
                             button1=false;
                             button2=false;
+                            button4=false;
                             button3=true;
                             setState(() {
 
@@ -349,7 +406,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                   ),
                   button1==true?  Container(
                     height: 600,
-                    width: 500,
+                    width: 150,
                     // color:  Color(0xFFF3D657),
                     margin: EdgeInsets.only(top:170),
                     //padding:EdgeInsets.only(right:25,left: 25),
@@ -381,9 +438,12 @@ class  _user_reserve_order extends State<user_reserve_order> {
                       },
                     ),
                   ):Container(),
-                  button2==true?  Container(
-                    height: 600,
-                    width: 500,
+                  button4==true?
+
+
+                  Container(  height: 300,
+                    width: 150,
+
                     // color:  Color(0xFFF3D657),
                     margin: EdgeInsets.only(top:170),
                     //padding:EdgeInsets.only(right:25,left: 25),
@@ -394,6 +454,32 @@ class  _user_reserve_order extends State<user_reserve_order> {
                       //   topRight: Radius.circular(50),
                       // ),
                     ),
+                    child:FutureBuilder(
+                      future: getlong_not_conferm(),
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if(snapshot.hasData){
+                          return ListView.builder(
+                            itemCount:snapshot.data.length,
+                            itemBuilder: (context, index) {
+                              var Listslot=snapshot.data;
+                              //if(Listslot=='NO Date'){return Container();}
+                              //return Container(child: Text('SARAH'),);
+                              //return slot(List1:Listslot,time: widget.time,);
+                              // double Rate =roundDouble(double.parse(snapshot.data[index]['AVG']),1);
+                             /// return new_order(describes:snapshot.data[index]['describes'],id:snapshot.data[index]['id'],nameofwork:snapshot.data[index]['nameofwork'],workerphone:snapshot.data[index]['workerphone'],phoneuser:snapshot.data[index]['phoneuser'],namelastt:snapshot.data[index]['namelast'],namefirstt:snapshot.data[index]['namefirst'],);
+
+                              return new_order(describes:"hey There",id:"",nameofwork:"اثاث",namelastt:"دعاء",namefirstt:"عقل",);
+                            },
+                          );
+                        }
+                        return Center(child: CircularProgressIndicator());
+                      },
+                    ),
+                  ):Container(),
+                  button2==true?   Container(
+                    height: 100,
+                    width: 150,
+                    margin: EdgeInsets.only(top:100),
                     child:FutureBuilder(
                       future: get_not_conferm(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -440,6 +526,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                               //return Container(child: Text('SARAH'),);
                               //return slot(List1:Listslot,time: widget.time,);
                               // double Rate =roundDouble(double.parse(snapshot.data[index]['AVG']),1);
+                              print("Before "+widget.username);
                               return new_order(username:widget.username,ststes:'',name:widget.username,id:snapshot.data[index]['id'],index:2,datecancel:snapshot.data[index]['datecancel'],timecancel:snapshot.data[index]['timecancel'],timeaccept:snapshot.data[index]['timeaccept'],timesend:snapshot.data[index]['timesend'],dateaccept:snapshot.data[index]['dateaccept'],datesend:snapshot.data[index]['datesend'],description:snapshot.data[index]['description'],phone:snapshot.data[index]['phoneuser'],phoneworker:snapshot.data[index]['phone'],work:snapshot.data[index]['Work'],image:snapshot.data[index]['image'],namefirst:snapshot.data[index]['namefirst'],namelast:snapshot.data[index]['namelast'],date:snapshot.data[index]['date'],timestart:snapshot.data[index]['timestart'] ,timeend:['timeend'],);
                               return Container(child: Text('bggngn'),);
                             },
@@ -453,6 +540,7 @@ class  _user_reserve_order extends State<user_reserve_order> {
                 ],),),
           ),],),);
   }
+
   // Future<void> _dialogCall() {
   //   return showDialog(
   //       context: context,
@@ -491,8 +579,13 @@ class new_order  extends StatefulWidget {
   final index;
   final ststes;
   final Rate;
+  final describes;
+  final nameofwork;
+
+  final workerphone;
+  final phoneuser; final namelastt; final namefirstt;
   //
-  new_order({this.Rate,this.username,this.ststes,this.datecancel,this.timecancel,this.index,this.AVG,this.token,this.workertoken,this.timeaccept,this.dateaccept,this.datesend,this.timesend,this.description,this.id,this.country,this.phoneworker,this.work,this.image,this.namefirst,this.namelast,this.name,this.date, this.timeend, this.timestart, this.Am_Pm,this.phone, this.time});
+  new_order({this.Rate,this.username,this.ststes,this.datecancel,this.timecancel,this.index,this.AVG,this.token,this.workertoken,this.timeaccept,this.dateaccept,this.datesend,this.timesend,this.description,this.id,this.country,this.phoneworker,this.work,this.image,this.namefirst,this.namelast,this.name,this.date, this.timeend, this.timestart, this.Am_Pm,this.phone, this.time,this.nameofwork,this.describes,this.phoneuser,this.workerphone,this.namefirstt,this.namelastt});
 
   @override
   _new_order createState() => _new_order();
@@ -500,14 +593,76 @@ class new_order  extends StatefulWidget {
 class _new_order extends State<new_order> {
   var List=[];
   var DateList=[];
+  bool delorder=false;
   @override
   Widget build(BuildContext context) {
 
     return Column(
       children:[
-        card(widget.date,widget.namefirst+" "+widget.namelast,widget.timestart,'8:00','am',widget.image,widget.work),
+       // card(widget.date,widget.namefirst+" "+widget.namelast,widget.timestart,'8:00','am',widget.image,widget.work),
+        card2(widget.describes,widget.namefirstt,widget.namelastt,widget.nameofwork,widget.workerphone,widget.id),
       ],
     );
+
+  }
+  Widget card2(String describe, String namefirst,String namelast,String nameofwork,String workerphone,String id)
+  {
+    return Container (
+     // width: 500,
+     //margin: EdgeInsets.all(5),
+      child:Card(
+
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        children: [
+          ListTile(
+            leading: Icon(Icons.arrow_drop_down_circle),
+            title: const Text('تفاصيل الطلب'),
+            subtitle: Text(
+
+              namefirst+' '+namelast,
+              style: TextStyle(color: Colors.black.withOpacity(0.6)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              describe,
+              style: TextStyle(color: Colors.black.withOpacity(0.6)),
+            ),
+          ),
+          ButtonBar(
+            alignment: MainAxisAlignment.start,
+            children: [
+
+              FlatButton(
+                textColor: const Color(0xFF6200EE),
+                onPressed: () {
+                  deleteOrderLong(id);
+
+                },
+                child: const Text(' حذف الطلب'),
+              ),
+            ],
+          ),
+          //delorder==true?deleteOrderLong(id):Container(),
+          // Image.asset('assets/card-sample-image.jpg'),
+          // Image.asset('assets/card-sample-image-2.jpg'),
+        ],
+      ),),);
+
+  }
+ Future  deleteOrderLong(String id)async{
+   var url = 'https://'+IP4+'/DUAA/PHP/deletelong.php';
+   var response = await http.post(url, body: {
+     "id":id,
+     "namefirst":namefirst,
+   });
+   String massage = json.decode(response.body);
+   print(massage);
+   setState(() {
+  delorder=false;
+   });
 
   }
   GestureDetector card(String date, String name,String timestart,String timeend,String Am_Pm,String image,String work)

@@ -174,21 +174,20 @@ class _Body extends State<SignuserScreen> {
               children: <Widget>[
                 Stack(
                   children: [
-
                     ClipPath(
                       clipper: Clipper4(),
-                      child:  Container(
-                        height: 220,
+                      child:Container(
+                        height: 200,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [B,G]),),
-
-                        // child: Center(child: Text("MultiplePointedEdgeClipper()")),
-                      ),
-                    ),
-                   Column(
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              // colors: [B,A,G]
+                              colors: [Y1,Y4]
+                          ),
+                        ),
+                      ),),
+                    Column(
                       children: [
                         Center(
                           child: Container(margin:EdgeInsets.only(top:90),child: image_profile(),),),
@@ -231,104 +230,104 @@ class _Body extends State<SignuserScreen> {
                                   child: Column(
                                     children:[
                                       Container(
-                                       child:Row(
-                                         children: [
-                                           Container(
-                                             margin: EdgeInsets.fromLTRB(0,70,40,0),
-                                             width: size.width * 0.33,
-                                             height: 60,
-                                             child: TextFormField(
-                                               controller: namefirstController,
-                                               validator: (value) {
-                                                 if (value.isEmpty) {
-                                                   Namefirst_Null=false;
-                                                   return null;
-                                                 } else {
+                                        child:Row(
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.fromLTRB(0,70,40,0),
+                                              width: size.width * 0.33,
+                                              height: 60,
+                                              child: TextFormField(
+                                                controller: namefirstController,
+                                                validator: (value) {
+                                                  if (value.isEmpty) {
+                                                    Namefirst_Null=false;
+                                                    return null;
+                                                  } else {
 
-                                                   Namefirst_Null=true;
-                                                   return null;
-                                                 }
-                                               },
-                                               cursorColor: kPrimaryColor,
-                                               textAlign: TextAlign.right,
-                                               style: TextStyle(
-                                                 fontSize: 16.0,
-                                                 fontWeight: FontWeight.bold,
-                                                 fontFamily: 'Changa',
-                                               ),
-                                               decoration: InputDecoration(
-                                                 filled: true,
-                                                 fillColor:Colors.grey[100],
-                                                 enabledBorder: new OutlineInputBorder(
-                                                   borderRadius: new BorderRadius.circular(30.0),
-                                                   borderSide:  BorderSide(color:Colors.grey[100]),
+                                                    Namefirst_Null=true;
+                                                    return null;
+                                                  }
+                                                },
+                                                cursorColor: kPrimaryColor,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'Changa',
+                                                ),
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor:Colors.grey[100],
+                                                  enabledBorder: new OutlineInputBorder(
+                                                    borderRadius: new BorderRadius.circular(30.0),
+                                                    borderSide:  BorderSide(color:Colors.grey[100]),
 
-                                                 ),
-                                                 focusedBorder: new OutlineInputBorder(
-                                                   borderRadius: new BorderRadius.circular(30.0),
-                                                   borderSide:  BorderSide(color:Colors.grey[100]),
+                                                  ),
+                                                  focusedBorder: new OutlineInputBorder(
+                                                    borderRadius: new BorderRadius.circular(30.0),
+                                                    borderSide:  BorderSide(color:Colors.grey[100]),
 
-                                                 ),
-                                                 hintText: 'الاسم الأول ',
-                                                 hintStyle: TextStyle(
-                                                   fontSize: 16.0,
-                                                   fontFamily: 'Changa',
-                                                   color: Color(0xFF666360),
-                                                 ),
-                                                 floatingLabelBehavior: FloatingLabelBehavior.always,
-                                               ),
-                                             ),
-                                           ),
-                                           Container(
-                                             margin: EdgeInsets.fromLTRB(0,70,10,0),
-                                             //padding: EdgeInsets.fromLTRB(0,0,30,0),
-                                             width: size.width * 0.44,
-                                             height: 60,
-                                             child: TextFormField(
-                                               controller: namelastController,
-                                               validator: (value) {
-                                                 if (value.isEmpty) {
-                                                   Namelast_Null=false;
-                                                   return null;
-                                                 } else {
+                                                  ),
+                                                  hintText: 'الاسم الأول ',
+                                                  hintStyle: TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontFamily: 'Changa',
+                                                    color: Color(0xFF666360),
+                                                  ),
+                                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              margin: EdgeInsets.fromLTRB(0,70,10,0),
+                                              //padding: EdgeInsets.fromLTRB(0,0,30,0),
+                                              width: size.width * 0.44,
+                                              height: 60,
+                                              child: TextFormField(
+                                                controller: namelastController,
+                                                validator: (value) {
+                                                  if (value.isEmpty) {
+                                                    Namelast_Null=false;
+                                                    return null;
+                                                  } else {
 
-                                                   Namelast_Null=true;
-                                                   return null;
-                                                 }
-                                               },
-                                               cursorColor: kPrimaryColor,
-                                               textAlign: TextAlign.right,
-                                               style: TextStyle(
-                                                 fontSize: 16.0,
-                                                 fontWeight: FontWeight.bold,
-                                                 fontFamily: 'Changa',
-                                               ),
-                                               decoration: InputDecoration(
-                                                 filled: true,
-                                                 fillColor:Colors.grey[100],
-                                                 enabledBorder: new OutlineInputBorder(
-                                                   borderRadius: new BorderRadius.circular(30.0),
-                                                   borderSide:  BorderSide(color:Colors.grey[100]),
+                                                    Namelast_Null=true;
+                                                    return null;
+                                                  }
+                                                },
+                                                cursorColor: kPrimaryColor,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'Changa',
+                                                ),
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor:Colors.grey[100],
+                                                  enabledBorder: new OutlineInputBorder(
+                                                    borderRadius: new BorderRadius.circular(30.0),
+                                                    borderSide:  BorderSide(color:Colors.grey[100]),
 
-                                                 ),
-                                                 focusedBorder: new OutlineInputBorder(
-                                                   borderRadius: new BorderRadius.circular(30.0),
-                                                   borderSide:  BorderSide(color:Colors.grey[100]),
+                                                  ),
+                                                  focusedBorder: new OutlineInputBorder(
+                                                    borderRadius: new BorderRadius.circular(30.0),
+                                                    borderSide:  BorderSide(color:Colors.grey[100]),
 
-                                                 ),
-                                                 //contentPadding: EdgeInsets.only(),
-                                                 hintText: ' اسم العائلة ',
-                                                 hintStyle: TextStyle(
-                                                   fontSize: 16.0,
-                                                   fontFamily: 'Changa',
-                                                   color: Color(0xFF666360),
-                                                 ),
-                                                 floatingLabelBehavior: FloatingLabelBehavior.always,
-                                               ),
-                                             ),
-                                           ),
-                                         ],
-                                       ),
+                                                  ),
+                                                  //contentPadding: EdgeInsets.only(),
+                                                  hintText: ' اسم العائلة ',
+                                                  hintStyle: TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontFamily: 'Changa',
+                                                    color: Color(0xFF666360),
+                                                  ),
+                                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                       Namelast_Null || Namefirst_Null ? Container(
                                         margin: EdgeInsets.fromLTRB(180, 0, 0, 0),
@@ -352,52 +351,52 @@ class _Body extends State<SignuserScreen> {
                                           ),),
                                       ),
                                       Container(
-                                      margin: EdgeInsets.fromLTRB(0,5,0,0),
-                                      width: size.width * 0.8,
-                                      height: 60,
-                                      child: TextFormField(
-                                        controller: nameController,
-                                        validator: (value) {
-                                          if (value.isEmpty) {
-                                            Name_Null=false;
-                                            return null;
-                                          } else {
+                                        margin: EdgeInsets.fromLTRB(0,5,0,0),
+                                        width: size.width * 0.8,
+                                        height: 60,
+                                        child: TextFormField(
+                                          controller: nameController,
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              Name_Null=false;
+                                              return null;
+                                            } else {
 
-                                            Name_Null=true;
-                                            return null;
-                                          }
-                                        },
-                                        cursorColor: kPrimaryColor,
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Changa',
-                                        ),
-                                        decoration: InputDecoration(
-                                          filled: true,
-                                          fillColor: Colors.grey[100],
-                                          prefixIcon: Icon(Icons.person,color: Color(0xFF666360)),
-                                          enabledBorder: new OutlineInputBorder(
-                                            borderRadius: new BorderRadius.circular(30.0),
-                                            borderSide:  BorderSide(color:Colors.grey[100]),
-
-                                          ),
-                                          focusedBorder: new OutlineInputBorder(
-                                            borderRadius: new BorderRadius.circular(30.0),
-                                            borderSide:  BorderSide(color:Colors.grey[100]),
-
-                                          ),
-                                          hintText: 'اسم المستخدم ',
-                                          hintStyle: TextStyle(
+                                              Name_Null=true;
+                                              return null;
+                                            }
+                                          },
+                                          cursorColor: kPrimaryColor,
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
                                             fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
                                             fontFamily: 'Changa',
-                                            color: Color(0xFF666360),
                                           ),
-                                          floatingLabelBehavior: FloatingLabelBehavior.always,
+                                          decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.grey[100],
+                                            prefixIcon: Icon(Icons.person,color: Color(0xFF666360)),
+                                            enabledBorder: new OutlineInputBorder(
+                                              borderRadius: new BorderRadius.circular(30.0),
+                                              borderSide:  BorderSide(color:Colors.grey[100]),
+
+                                            ),
+                                            focusedBorder: new OutlineInputBorder(
+                                              borderRadius: new BorderRadius.circular(30.0),
+                                              borderSide:  BorderSide(color:Colors.grey[100]),
+
+                                            ),
+                                            hintText: 'اسم المستخدم ',
+                                            hintStyle: TextStyle(
+                                              fontSize: 16.0,
+                                              fontFamily: 'Changa',
+                                              color: Color(0xFF666360),
+                                            ),
+                                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                                          ),
                                         ),
                                       ),
-                                    ),
                                       Name_Null ? Container(margin: EdgeInsets.fromLTRB(180, 0, 0, 0),
                                         child: Text('',textAlign:TextAlign.end,
                                           style: TextStyle(
@@ -610,7 +609,7 @@ class _Body extends State<SignuserScreen> {
                                           },
                                         ),
                                       ),
-                                     //Container(height: 10,),
+                                      //Container(height: 10,),
                                     ],
                                   ),):Container(
                                   child: Column(
@@ -905,26 +904,26 @@ class _Body extends State<SignuserScreen> {
                                       // ),
                                       codeSent?Center(
                                         child:Directionality(textDirection: TextDirection.ltr,
-                                        child:Container(
-                                          margin: EdgeInsets.only(top:0,bottom: 89,left: 15,right:5),
-                                          // padding: EdgeInsets.only(top:0.05),
-                                          height: 55,
-                                          // color:Colors.grey.withOpacity(0.1),
-                                          child: PinEntryTextField(
-                                            fields: 6,
-                                            fontSize: 16.0,
-                                            fieldWidth: 45.0,
-                                            showFieldAsBox: true,
-                                            onSubmit: (String pin){
+                                          child:Container(
+                                            margin: EdgeInsets.only(top:0,bottom: 89,left: 15,right:5),
+                                            // padding: EdgeInsets.only(top:0.05),
+                                            height: 55,
+                                            // color:Colors.grey.withOpacity(0.1),
+                                            child: PinEntryTextField(
+                                              fields: 6,
+                                              fontSize: 16.0,
+                                              fieldWidth: 45.0,
+                                              showFieldAsBox: true,
+                                              onSubmit: (String pin){
 
-                                              setState((){
-                                                this.smsCode=pin;
-                                                smscode=pin;
+                                                setState((){
+                                                  this.smsCode=pin;
+                                                  smscode=pin;
+                                                },
+                                                );
                                               },
-                                              );
-                                            },
-                                          ), //
-                                        ),),):Container(height: 145,),
+                                            ), //
+                                          ),),):Container(height: 145,),
                                     ],
                                   ),
                                 ),
@@ -937,7 +936,7 @@ class _Body extends State<SignuserScreen> {
                                         side: BorderSide(color: Colors.transparent)
                                     ),
                                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3),
-                                    color: D,
+                                    color: Colors.black87,
                                     onPressed: () async {
                                       if(!card1) {
                                         setState(() {
@@ -959,8 +958,8 @@ class _Body extends State<SignuserScreen> {
                                           print(!passController.text.isEmpty);
                                         }}
                                       else{
-                                          if(country_id=="اختيار المنطقة"){Country=false;}
-                                          else{Country=true;}
+                                        if(country_id=="اختيار المنطقة"){Country=false;}
+                                        else{Country=true;}
                                         if(Phone && codeSent && Country){
                                           print(country_id);
                                           try {
@@ -1018,7 +1017,7 @@ class _Body extends State<SignuserScreen> {
                                     margin: EdgeInsets.only(top: 30,left: 0,right: 190),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: card1 ? D :  Colors.grey.withOpacity(0.5),
+                                      color: card1 ? Colors.black87 :  Colors.grey.withOpacity(0.5),
                                     ),
                                   ),
                                   Container(
@@ -1027,7 +1026,7 @@ class _Body extends State<SignuserScreen> {
                                     margin: EdgeInsets.only(top: 30,left: 100,right: 10),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: card1 ?  Colors.grey.withOpacity(0.5):D,
+                                      color: card1 ?  Colors.grey.withOpacity(0.5):Colors.black87,
                                     ),
                                   ),
 
@@ -1132,35 +1131,35 @@ class _Body extends State<SignuserScreen> {
         ),
         Container(
           width: 300,
-         // color: Colors.yellow,
+          // color: Colors.yellow,
           padding: EdgeInsets.only(right: 238),
           alignment: Alignment.topLeft,
-        child:Align(
-         // alignment: Alignment(10,20),
-          child: ClipPath(
-            clipper: ArrowClipper(),
-            child:Container(
-              height: 20,
-              width: 30,
-              decoration: BoxDecoration(
+          child:Align(
+            // alignment: Alignment(10,20),
+            child: ClipPath(
+              clipper: ArrowClipper(),
+              child:Container(
+                height: 20,
+                width: 30,
+                decoration: BoxDecoration(
                   color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 1),
-                    blurRadius: 0.02,
-                    color: Colors.black,
-                  ),
-                ],
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 1),
+                      blurRadius: 0.02,
+                      color: Colors.black,
+                    ),
+                  ],
                   // boxShadow:
                 ),
-            // child: Card(
-            //   elevation: 5,
-            //   //margin: EdgeInsets.only(left: 50,right: 50),
-            //   // height: 20,
-            //   // width: 30,
+                // child: Card(
+                //   elevation: 5,
+                //   //margin: EdgeInsets.only(left: 50,right: 50),
+                //   // height: 20,
+                //   // width: 30,
+              ),
             ),
-          ),
-        ),),
+          ),),
         Material(
           elevation: 5,
           //shape: ArrowShape(),
@@ -1386,11 +1385,11 @@ class ArrowClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path();
 
-      path.moveTo(0, size.height);
-      path.lineTo(size.width /2, 0);
-      path.lineTo(size.width, size.height);
+    path.moveTo(0, size.height);
+    path.lineTo(size.width /2, 0);
+    path.lineTo(size.width, size.height);
 
-      return path;
+    return path;
   }
 
   @override

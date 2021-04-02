@@ -585,6 +585,7 @@ class _MyHomePageState extends State<w> {
                   if(snapshot.data[index]['AVG']==null){Rate=0.0;}
                   else{ Rate =roundDouble(double.parse(snapshot.data[index]['AVG']),1);}
                   if (list_.any((item) => snapshot.data[index]['phone'].contains(item))) {
+                    print("inside user llocation "+widget.namefirst_Me +""+widget.nameLast_Me);
                     return Group(namefirst_Me:widget.namefirst_Me,nameLast_Me:widget.nameLast_Me,phone_Me:widget.phone_Me,image_Me:widget.image_Me,Rate:Rate,name_Me:widget.name_Me,name:snapshot.data[index]['name'],namefirst:snapshot.data[index]['namefirst'],namelast:snapshot.data[index]['namelast'],phone:snapshot.data[index]['phone'],image:snapshot.data[index]['image'],Work:snapshot.data[index]['Work'],Experiance:snapshot.data[index]['Experiance'],Information:snapshot.data[index]['Information'],token:snapshot.data[index]['token']);
                     return Container(child: Text('bggngn'),);
                   }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutterphone/WORKER_SANAYEE/Worker_conferm_order.dart';
 import 'package:flutterphone/WORKER_SANAYEE/GET_IMGS.dart';
+import 'package:flutterphone/WORKER_SANAYEE/viewWarshaorder.dart';
+import 'package:flutterphone/WORKER_SANAYEE/warshatee.dart';
 import 'package:flutterphone/Worker/setting_worker.dart';
 import 'package:flutterphone/Worker/worker_order.dart';
 import 'package:flutterphone/screens/login_screen.dart';
@@ -243,15 +245,21 @@ class  _order_worker extends State<order_worker> {
               //Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => U_PROFILE(name_Me: widget.name_Me,)));
             }),
           ),
+
           Container(
             margin: EdgeInsets.only(top: 230),
             child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                _customCard1(
+                GestureDetector(
+                onTap: (){
+          DateTime date=DateTime.now();
+          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => warshatee(name:widget.name,phone: widget.phone,time:date,)));
+          },
+               child: _customCard1(
                   imageUrl: "assets/work/house-reforms.png",
                   item: "ورشاتي الحاية",
-                ),
+                ),),
                 GestureDetector(
                   onTap: (){
                     DateTime date=DateTime.now();
@@ -266,14 +274,20 @@ class  _order_worker extends State<order_worker> {
           ),
           SizedBox(height: 40,),
           Container(
-            margin: EdgeInsets.only(top: 410),
+            margin: EdgeInsets.only(top: 500),
             child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                _customCard3(
-                  imageUrl: "clean.png",
+      GestureDetector(
+        onTap: (){
+         // DateTime date=DateTime.now();
+          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => viewWarsha(name:widget.name,phone: widget.phone,)));
+            },
+        child:  _customCard3(
+
+                  imageUrl: "assets/work/taqaat.png",
                   item: "طلبات الورشات",
-                ),
+                ),),
                GestureDetector(
                  onTap: (){
                    print(widget.phone);
@@ -281,7 +295,7 @@ class  _order_worker extends State<order_worker> {
                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => not_conferm_order(name:widget.name,phone: widget.phone,time:date,)));
                  },
                  child:_customCard3(
-                   imageUrl: "clean.png",
+                   imageUrl: "assets/work/taqaat.png",
                    item: "طلبات الطقات",
                  ),
                ),
